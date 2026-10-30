@@ -1,0 +1,7 @@
+﻿/* HUD, monitor bars and tactile feedback */
+.vitals{filter:drop-shadow(0 2px 4px #000)}.health,.energy,.xp{min-width:0}.bar{overflow:hidden;border-radius:1px}#objective{letter-spacing:.4px}#touch button:active{background:#145442;border-color:#5cf4c2;color:#fff}button:focus-visible{outline:2px solid #b3ffdb;outline-offset:2px}
+
+body[data-region='4']{--mint:#d2efff;--green:#59e9f4;--red:#ff6b9d;--gold:#e5a7ff}body[data-region='2']{--mint:#c4f8d2;--green:#82efa8}body[data-region='3']{--mint:#ffd5b1;--green:#ff9d64}
+
+body[data-region='1']{--mint:#d2efff;--green:#7ad9ee;--red:#ee745f;--gold:#e2b27d}
+
