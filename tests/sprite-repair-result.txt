@@ -1,0 +1,4 @@
+﻿PASS Governor renders its body once as one complete image, without mesh slices
+PASS Governor movement and attacks work without canvas pixel readback
+PASS drawing repeatedly does not advance or restart either animation
+RESULT PASS 3 passed, 0 failed

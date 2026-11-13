@@ -1,0 +1,29 @@
+{
+  "name": "GOVERNADOR MECÂNICO — O REGENTE DE FERRO",
+  "reference": "Sprite Sheet do Comandante Mecânico.png",
+  "frameSize": [160, 160],
+  "origin": [80, 142],
+  "facing": "right",
+  "renderScale": 0.7125,
+  "alpha": "RGBA, background removed with edge-connected chroma segmentation",
+  "sourceLayout": "Hand-inspected nonuniform rectangles in tools/build-governor.ps1",
+  "animationNotes": "Reference poses are cropped individually. Turn, aerial, landing, hit and death transitions are derived with progressive transforms; energy overlays animate shield, summon and ultimate. No complete reference image is used at runtime.",
+  "animations": {
+    "IDLE": {"file": "idle.png", "frames": 8, "loop": true},
+    "WALK": {"file": "walk.png", "frames": 8, "loop": true},
+    "RUN": {"file": "run.png", "frames": 8, "loop": true},
+    "TURN": {"file": "turn.png", "frames": 4},
+    "JUMP": {"file": "jump.png", "frames": 6},
+    "FALL": {"file": "fall.png", "frames": 4},
+    "LAND": {"file": "land.png", "frames": 4},
+    "ATTACK": {"file": "attack.png", "frames": 8},
+    "CANNON": {"file": "cannon.png", "frames": 8},
+    "SHIELD": {"file": "shield.png", "frames": 8},
+    "SUMMON_DRONES": {"file": "summon_drones.png", "frames": 8},
+    "ULTIMATE": {"file": "ultimate.png", "frames": 16},
+    "HIT": {"file": "hit.png", "frames": 4},
+    "DEATH": {"file": "death.png", "frames": 12}
+  },
+  "individualFrames": "<animation>/000.png through <animation>/<count-1>.png",
+  "secondary": {"frameSize": [128, 192], "origin": [64, 96], "framesPerSheet": 8, "files": ["drone.png", "projectile.png", "cannon_part.png", "shield_fx.png", "beam.png", "explosion.png", "particle.png", "core.png", "charge.png"]}
+}

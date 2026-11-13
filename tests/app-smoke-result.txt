@@ -1,0 +1,1 @@
+﻿PASS real index.html menu -> Distrito Zero checkpoint -> active Governor, sprite rendering and HUD. Runtime errors: []

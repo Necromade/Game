@@ -1,0 +1,16 @@
+﻿PASS 106 frames, true alpha, sheet sizes and all assets load
+PASS one governor per Distrito Zero, no governor elsewhere
+PASS detection, movement, direction and jump/fall/land recovery
+PASS cannon has windup, three shots and recovery
+PASS shield reduces damage and expires
+PASS drones have independent health, chase, fire and bounded population
+PASS order warns before beams and collides at player height
+PASS supremacy telegraph, safe distance, discharge, damage and cleanup
+PASS 70% and 40% phase thresholds and boss HUD
+PASS all animations select exactly one frame, drawing does not advance time
+PASS projectiles collide and expire, melee respects vertical distance
+BATTLE phases=1,2,3 states=CHASE,IDLE,ATTACK,CANNON,HIT,PATROL,SUMMON,ULTIMATE,SHIELD,ORDER,DEATH
+PASS complete battle using real player projectiles through all three phases
+PASS room transition clears boss objects
+PASS no browser runtime errors
+RESULT PASS 14 passed, 0 failed

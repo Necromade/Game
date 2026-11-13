@@ -1,0 +1,32 @@
+{
+  "name": "MATRIZ ORGÂNICA — ORGANISMO TECNOLÓGICO",
+  "region": "CIDADE SUBMERSA",
+  "reference": "Chefe Biomecânico_ Fusão Neon.png",
+  "referenceSize": [1536, 1024],
+  "frameSize": [192, 192],
+  "origin": [96, 96],
+  "originMeaning": "biological core, aligned independently per reference pose",
+  "transparency": "RGBA; black reference background removed",
+  "sourceLayout": "Manual nonuniform crop rectangles in tools/build-matrix.ps1",
+  "animationNotes": "Reference labels do not equal the number of distinct visible poses. Missing intermediate frames are derived with breathing, emissive pulses and progressive disintegration. Main frames contain a masked torso; separate articulated appendages replace outer baked tentacles.",
+  "animations": {
+    "IDLE": {"file": "idle.png", "frames": 8, "sourcePoses": 8},
+    "FLOAT": {"file": "float.png", "frames": 8, "sourcePoses": 8},
+    "MOVE": {"file": "move.png", "frames": 8, "sourcePoses": 5},
+    "TENTACLE_ATTACK": {"file": "tentacle_attack.png", "frames": 8, "sourcePoses": 5},
+    "ORGANIC_SHOT": {"file": "organic_shot.png", "frames": 8, "sourcePoses": 7},
+    "SUMMON": {"file": "summon.png", "frames": 8, "sourcePoses": 6},
+    "ROOT_ATTACK": {"file": "root_attack.png", "frames": 8, "sourcePoses": 3},
+    "ULTIMATE": {"file": "ultimate.png", "frames": 16, "sourcePoses": 7},
+    "HIT": {"file": "hit.png", "frames": 4, "sourcePoses": 3},
+    "DEATH": {"file": "death.png", "frames": 12, "sourcePoses": 5}
+  },
+  "individualFrames": "<animation>/000.png through <animation>/<count-1>.png",
+  "parts": {
+    "frameSize": [128, 128],
+    "origin": [64, 64],
+    "framesPerSheet": 8,
+    "files": ["tentacle.png", "tip.png", "cable.png", "plate.png", "core.png", "eye.png", "drone.png", "spore.png", "root.png", "pulse.png", "beam.png", "burst.png"]
+  },
+  "portrait": "portrait.png"
+}

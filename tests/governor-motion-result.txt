@@ -1,0 +1,20 @@
+﻿PASS acceleration starts gradually, braking preserves momentum and settles
+PASS 30/60/120 Hz produce equivalent travel and gait
+PASS turn anticipates, brakes and changes facing only mid-animation
+PASS locomotion clips do not restart; walk/run preserve stride phase
+PASS footsteps and frame cadence follow distance, not idle time
+PASS jump crouches before impulse, falls, lands with impact and recovers
+PASS solid walls stop inertia without passing through geometry
+PASS walking off a platform enters fall and returns to grounded contact
+PASS AI reserves special attacks for their intended ranges
+PASS every ability has preparation, execution and recovery
+PASS cannon raises arm before firing and has physical recoil
+PASS order prepares before marking and retains full warning time
+PASS armor and core open gradually; cape and head respond independently
+PASS rendering uses one source clip and never updates animation/physics
+PASS turn keeps a readable silhouette instead of collapsing to a thin line
+PASS death stops motion, cannot restart and preserves twelve-frame sequence
+METRIC whole-frame draw 0.03 ms/character
+PASS whole-frame rendering remains within a 60 FPS CPU budget on this browser
+PASS no browser runtime errors
+RESULT PASS 18 passed, 0 failed

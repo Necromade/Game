@@ -1,0 +1,35 @@
+﻿FAIL  room construction has isolated entities and required transition data — enemy IDs are not unique
+PASS  movement and jump use delta time
+PASS  attack has a timed active hitbox and applies one hit
+PASS  combo input queues during the active attack and chains after recovery
+PASS  dodge spends energy and grants brief invulnerability
+PASS  damage grants temporary invulnerability
+PASS  phase transition resets transient state, projectiles and camera
+PASS  every campaign phase can be loaded and unloaded without duplicate enemies
+PASS  one-way platform collision lands player at its top surface
+PASS  observer AI enters ranged attack and spawns projectile
+PASS  ash wanderer detects player and enters chase state
+PASS  spider uses a pounce attack state at close range
+FAIL  executioner exposes a readable heavy attack windup — elite attack lacks preparation window
+PASS  front-facing sentinel blocks and rear attack exposes it
+FAIL  every room has three distinct computer question tokens and enough questions — question tokens are missing or duplicated
+PASS  weapon loadout equips a ranged weapon and fires a player projectile
+FAIL  platform routes stay inside jump height and horizontal reach — platform elevation exceeds jump height
+PASS  room pickups grant their effect once
+PASS  quiz checkpoint restores the player in the saved region
+PASS  death animation returns player to HELIX and resets health
+PASS  all region backdrops render without runtime errors
+PASS  moving platform keeps a stable base height and collapsing platforms expire
+PASS  boss enters a second phase and fires a three-shot volley
+PASS  area difficulty applies configured health multipliers without runaway scaling
+PASS  spawn manager validates camera distance and commits a bounded encounter reinforcement
+PASS  spawn validation rejects geometry overlaps and respects the alive cap
+PASS  turret enters a telegraphed ranged attack
+PASS  technician repairs an adjacent damaged ally
+PASS  EDEN unlocks its three combat phases
+PASS  Dr. Mortis waits for HELIX waves, advances phases, and uses his signature attacks
+PASS  Dr. Mortis keeps moving through recovery, respects walls, and updates facing
+PASS  Mortis has one live instance and one enemy-render dispatch
+PASS  industrial hazard damages on its active cycle
+
+4 FAILED

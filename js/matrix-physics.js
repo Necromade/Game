@@ -1,0 +1,30 @@
+(function(){
+'use strict';
+const M=DP.MatrixModel,{clamp,smooth,ease}=M;
+function box(p){return{x:p.x+2,y:p.y+2,w:p.w-4,h:p.h-4};}
+function segmentHit(a,b,r,q){let low=0,high=1;for(const [start,delta,min,max] of [[a.x,b.x-a.x,q.x-r,q.x+q.w+r],[a.y,b.y-a.y,q.y-r,q.y+q.h+r]]){if(Math.abs(delta)<1e-7){if(start<min||start>max)return false;}else{let t0=(min-start)/delta,t1=(max-start)/delta;if(t0>t1)[t0,t1]=[t1,t0];low=Math.max(low,t0);high=Math.min(high,t1);if(low>high)return false;}}return true;}
+function move(g,e,dt){const m=M.ensure(e),target=M.abilities[m.state]||['HIT','DEATH'].includes(m.state)?0:m.target,rate=Math.abs(target)<Math.abs(m.velocity)?6:2.8,old=m.velocity,decay=Math.exp(-rate*dt),dx=target*dt+(old-target)*(1-decay)/rate;m.velocity=target+(old-target)*decay;const previous=e.x;e.x=clamp(e.x+dx,1660,g.worldWidth-e.w-30);for(const q of g.room.solids||[]){if(e.y+e.h<q.y||e.y>q.y+q.h)continue;if(dx>0&&previous+e.w<=q.x&&e.x+e.w>q.x){e.x=q.x-e.w;m.velocity=0;}if(dx<0&&previous>=q.x+q.w&&e.x<q.x+q.w){e.x=q.x+q.w;m.velocity=0;}}
+ if(e.x===1660||e.x===g.worldWidth-e.w-30)m.velocity=0;e.vx=m.velocity;
+ // Sum of low frequencies, rather than random jumps or one repeated sine.
+ const bob=Math.sin(m.clock*1.37)*3.6+Math.sin(m.clock*2.21+1.1)*1.8;m.drift=smooth(m.drift,bob,5,dt);e.y=(e.baseY||390)+m.drift;
+}
+function limbs(g,e,dt){const m=M.ensure(e),cx=e.x+e.w/2,cy=e.y+e.h/2,player=box(g.p),count=m.phase===2?6:m.phase===1?4:3;
+ for(let i=0;i<m.tentacles.length;i++){const t=m.tentacles[i],angle=i*Math.PI/3+.15,start={x:cx+Math.cos(angle)*26*m.expansion,y:cy+Math.sin(angle)*24*m.expansion},rest={x:cx+Math.cos(angle)*(88+m.phase*10)+Math.sin(m.clock*(1.1+i*.13)+t.phase)*11-m.velocity*.18,y:cy+Math.sin(angle)*62+Math.cos(m.clock*(1.5+i*.09)+t.phase)*10};let amount=0;t.active=false;
+  if(m.state==='TENTACLE'&&i<count){const local=m.timer-(.68+i*.13);amount=local<0?ease((local+.5)/.5)*.12:local<.24?ease(local/.12):1-ease((local-.24)/.5);t.active=local>=.1&&local<=.36;}
+  const aim=m.aim||{x:g.p.x+15,y:g.p.y+20},length=Math.hypot(aim.x-cx,aim.y-cy),reach=Math.min(1,240/Math.max(1,length)),end={x:rest.x+(cx+(aim.x-cx)*reach-rest.x)*amount,y:rest.y+(cy+(aim.y-cy)*reach-rest.y)*amount},bend={x:(start.x+end.x)/2+Math.cos(angle+1.2)*(25+amount*18),y:(start.y+end.y)/2+Math.sin(angle+1.2)*(24+amount*16)};t.points=[];for(let j=0;j<=10;j++){const p=j/10;t.points.push({x:(1-p)*(1-p)*start.x+2*(1-p)*p*bend.x+p*p*end.x,y:(1-p)*(1-p)*start.y+2*(1-p)*p*bend.y+p*p*end.y});}
+  if(t.active&&!t.hit)for(let j=1;j<t.points.length;j++)if(segmentHit(t.points[j-1],t.points[j],5,player)){t.hit=true;g.damagePlayer(15+m.phase*2,'matrix');g.fxBurst(t.points[j].x,t.points[j].y,'#e639b8',7);break;}
+ }
+}
+function attach(g,e,shot,structure){if(e.hp<=0||!g.room.enemies.includes(e)||shot.attached)return;shot.attached=true;const m=M.ensure(e);if(m.nodes.length>=6)m.nodes.shift();m.nodes.push({id:e.id+'-node-'+(++m.serial),x:clamp(shot.x,structure.x+3,structure.x+structure.w-3),y:structure.y-5,structure,offset:clamp(shot.x-structure.x,3,structure.w-3),timer:0,life:5.2,delay:.85,active:false,hitCooldown:0});g.fxBurst(shot.x,structure.y,'#e639b8',8);}
+function shoot(g,e,angle){const m=M.ensure(e),x=e.x+e.w/2,y=e.y+e.h*.55;const shot={owner:'enemy',kind:'matrix-spore',ownerId:e.id,x,y,vx:Math.cos(angle)*255,vy:Math.sin(angle)*255,radius:6,life:3.1,damage:13,color:'#f84bbd',onBlocked(game,q){attach(game,e,this,q);}};g.projectiles.push(shot);m.recoil=1;}
+function projectileFloor(g,dt){for(const shot of g.projectiles){if(shot.kind!=='matrix-spore'||shot.life<=0)continue;if(shot.y+shot.vy*dt>=510&&shot.vy>0){const e=g.room.enemies.find(q=>q.id===shot.ownerId&&q.hp>0);if(e)attach(g,e,shot,{x:0,y:520,w:g.worldWidth,h:80,floor:true});shot.life=0;}}}
+function hazards(g,dt){const player=box(g.p);for(const e of g.room.enemies){if(e.kind!=='matrix'||e.hp<=0)continue;const m=M.ensure(e);
+  for(const n of m.nodes){n.timer+=dt;n.life-=dt;n.hitCooldown=Math.max(0,n.hitCooldown-dt);if(n.structure.active===false){n.life=0;continue;}n.x=n.structure.x+n.offset;n.y=n.structure.y-5;n.active=n.timer>=n.delay;}
+  m.nodes=m.nodes.filter(n=>n.life>0);m.links=[];for(let i=0;i<m.nodes.length;i++){const a=m.nodes[i],b=m.nodes[i+1]||{x:e.x+e.w/2,y:e.y+e.h/2,active:true};if(Math.hypot(b.x-a.x,b.y-a.y)>480)continue;const active=a.active&&b.active&&a.timer%1.05<.62;m.links.push({a,b,active,progress:clamp(a.timer/a.delay,0,1)});if(active&&a.hitCooldown<=0&&segmentHit(a,b,4,player)){g.damagePlayer(12,'matrix');a.hitCooldown=.8;}}
+  for(const r of m.roots){r.timer+=dt;r.life-=dt;r.active=r.timer>=r.delay;if(r.active&&r.timer-r.delay<.8&&!r.hit&&segmentHit({x:r.x,y:r.y},{x:r.x,y:r.y-r.h},r.w/2,player)){r.hit=true;g.damagePlayer(19,'matrix');g.fxBurst(r.x,r.y-25,'#ff4da6',10);}}
+  m.roots=m.roots.filter(r=>r.life>0&&r.structure?.active!==false);for(const r of m.roots)if(r.structure){r.x=r.structure.x+r.offset;r.y=r.structure.y;}
+  const a=m.blast;if(a){a.timer+=dt;if(a.timer>=a.delay){a.active=true;if(!a.emitted){a.emitted=true;g.shake=15;g.fxBurst(a.x,a.y,'#ed42c5',45);}const near={x:clamp(a.x,player.x,player.x+player.w),y:clamp(a.y,player.y,player.y+player.h)};if(!a.hit&&Math.hypot(a.x-near.x,a.y-near.y)<=a.radius){a.hit=true;g.damagePlayer(32,'matrix');}}if(a.timer>a.delay+.6)m.blast=null;}
+ }}
+function drone(g,e,dt){e.tempLife-=dt;const owner=g.room.enemies.find(q=>q.id===e.ownerId&&q.hp>0);if(!owner||e.tempLife<=0){e.hp=0;e.deathAnim=.5;return;}e.matrixClock=(e.matrixClock||0)+dt;e.state='chase';e.dir=g.p.x<e.x?-1:1;const tx=g.p.x+Math.sin(e.matrixClock*1.7+e.baseY)*70,ty=clamp(g.p.y-65+Math.sin(e.matrixClock*2.1)*18,180,445);e.x+=clamp(tx-e.x,-95,95)*dt;e.y+=clamp(ty-e.y,-65,65)*dt;if(e.cooldown<=0&&Math.abs(e.x-g.p.x)<520){const a=Math.atan2(g.p.y+20-e.y,g.p.x+15-e.x);g.projectiles.push({owner:'enemy',ownerId:e.ownerId,kind:'matrix-drone',x:e.x+15,y:e.y+14,vx:Math.cos(a)*215,vy:Math.sin(a)*215,radius:4,life:2.5,damage:8,color:'#c653ff'});e.cooldown=2.6;e.state='attack';}}
+DP.MatrixPhysics={move,limbs,attach,shoot,projectileFloor,hazards,drone,segmentHit,box};
+})();

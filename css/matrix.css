@@ -1,0 +1,6 @@
+#bossHud.matrix{padding:12px 16px 10px 70px;background:linear-gradient(115deg,#211024f5,#08121df5);border:1px solid #993c91;box-shadow:0 0 24px #e435b72b;min-height:74px}
+#bossHud.matrix::before{content:'';position:absolute;left:5px;top:3px;width:59px;height:65px;background:url('../assets/sprites/matrix/portrait.png') center/75px 65px no-repeat;filter:drop-shadow(0 0 5px #e738bd)}
+#bossHud.matrix::after{content:attr(data-subtitle) ' // ' attr(data-phase);display:block;margin-top:6px;font:9px monospace;letter-spacing:.6px;color:#e292d4}
+#bossHud.matrix #bossName{color:#f5c7e9;font-size:12px;letter-spacing:1.4px}
+#bossHud.matrix #bossBar{background:linear-gradient(90deg,#78277f,#f749a6);transition:width .16s;box-shadow:0 0 9px #e838ab88}
+#bossHud.matrix.matrix-hit{border-color:#ffd7f5;box-shadow:0 0 24px #ec55c257}

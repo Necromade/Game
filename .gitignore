@@ -1,0 +1,5 @@
+tests/.governor-*/
+tests/*-browser.log
+tests/governor-dom.html
+tests/*.tmp.js
+tests/*.tmp.html

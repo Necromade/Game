@@ -1,0 +1,27 @@
+﻿PASS one guardian in Floresta Experimental and no duplicate identities
+PASS 107 frames, twelve sheets, all body frames nonempty and truly transparent
+PASS detection and hop locomotion keep paws planted during preparation
+PASS move compresses, lifts off, advances in air and recovers at landing
+PASS jump physics agrees at 30/60/120 Hz during free flight
+PASS walls, one-way platforms and arena bounds constrain the frog
+PASS all five abilities have preparation, execution and recovery
+PASS predatory tongue warns, extends once, collides and retracts
+PASS capsule contact rejects targets outside the tongue path
+PASS spore rain charges before a varied, gravity-driven volley
+PASS roots telegraph, collide individually and retract with finite lifetime
+PASS roots cannot damage above their growing tip and stay visible while retracting
+PASS fungal colonies grow before spawning independently animated creatures
+PASS phase three caps colonies at three and creatures at four
+PASS destroyed colonies animate their particles and leave no frozen corpse
+PASS green extinction makes a large jump and creates roots and both shockwaves
+PASS shockwaves collide over swept travel and can be jumped
+PASS phase boundaries are exactly 70% and 35%, with dedicated HUD
+PASS all twelve animations select one main frame without advancing during draw
+PASS eyes, mushrooms, moss, core and vines keep independent animation phases
+PASS spores collide through existing projectile damage and expire
+PASS spores burst at ground contact without changing other projectile types
+BATTLE phases=1,2,3 states=MOVE,LAND,FLOAT,TONGUE_ATTACK,SPORE_ATTACK,HIT,MUSHROOM_SUMMON,ROOT_ATTACK,JUMP,ULTIMATE,DEATH
+PASS complete browser battle uses real rifle hits through all phases and skills
+PASS room changes discard guardian, colonies, spores and local effects
+PASS no JavaScript runtime errors
+RESULT PASS 25 passed, 0 failed

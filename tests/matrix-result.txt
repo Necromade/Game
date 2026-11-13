@@ -1,0 +1,23 @@
+﻿PASS one Matrix in Cidade Submersa; no duplicate or former forest instance
+PASS 88 progressive body frames, ten sheets, alpha and secondary assets
+PASS detection, gradual approach and smooth irregular float
+PASS physics and animation advance equivalently at 30/60/120 Hz
+PASS all five abilities expose preparation, execution and recovery
+PASS tentacles move independently and have separate capsule hit tests
+PASS segment collision accepts crossing and rejects nearby non-contact
+PASS organic shots wait for preparation and emit one bounded volley
+PASS organic projectile attaches through existing geometry collision pipeline
+PASS floor attachment, delayed electrical collision and lifecycle are bounded
+PASS drones have independent health, movement and attacks; summons respect cap
+PASS phase three enables six striking limbs and caps drones at three
+PASS drone death advances explosion frames and removes the entity
+PASS titanium roots warn, grow, collide individually and expire
+PASS absolute fusion opens core, warns, spares safe zone and discharges
+PASS phase thresholds activate integration and expansion with special HUD
+PASS all body clips render one main frame and rendering never advances clocks
+PASS secondary core/cable/plate/eye and tentacle frames continue independently
+BATTLE phases=1,2,3 states=MOVE,FLOAT,TENTACLE,SHOT,HIT,SUMMON,ROOT,ULTIMATE,DEATH
+PASS full browser battle uses real rifle collision, all phases and all abilities
+PASS room transitions remove Matrix state, shots and summons
+PASS no browser runtime errors
+RESULT PASS 21 passed, 0 failed

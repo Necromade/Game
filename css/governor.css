@@ -1,0 +1,11 @@
+#bossHud.governor{padding:13px 18px 12px 68px;border:1px solid #865243;background:linear-gradient(110deg,#23161beF,#0a1019f5);box-shadow:0 0 24px #ff20361c;min-height:72px;transition:border-color .25s,box-shadow .25s}
+#bossHud.governor::before{content:'';position:absolute;left:7px;top:2px;width:58px;height:65px;background:url('../assets/sprites/governor/idle/000.png') center/80px 80px no-repeat;filter:drop-shadow(0 0 5px #c8323c)}
+#bossHud.governor::after{content:attr(data-subtitle) '  //  ' attr(data-phase);display:block;margin-top:6px;color:#c5a16e;font:10px monospace;letter-spacing:1px}
+#bossHud.governor #bossName{color:#f0d8c0;letter-spacing:1.4px;font-size:12px}
+#bossHud.governor #bossBar{background:linear-gradient(90deg,#7f202e,#fa4b58);transition:width .16s;box-shadow:0 0 9px #ec344a88}
+#bossHud.governor.gov-hit{border-color:#ffbec4;box-shadow:0 0 18px #ff344c66}
+#bossHud.governor.gov-transition{animation:governor-phase .4s alternate infinite}
+@keyframes governor-phase{to{border-color:#ff5b68;box-shadow:0 0 28px #fa243955}}
+@media(prefers-reduced-motion:reduce){#bossHud.governor.gov-transition{animation:none}}
+
+body[data-region="1"] #game{object-fit:contain;background:#091116}

@@ -1,0 +1,11 @@
+#bossHud.root-guardian{padding:12px 14px 10px 70px;min-height:76px;background:linear-gradient(115deg,#152719f5,#0d131ef5);border:1px solid #788b4a;box-shadow:0 0 24px #91d75322}
+#bossHud.root-guardian::before{content:'';position:absolute;left:5px;top:6px;width:60px;height:61px;background:url('../assets/sprites/enemies/root_guardian/portrait.png') center/85px 61px no-repeat;filter:drop-shadow(0 0 5px #b1d06a)}
+#bossHud.root-guardian::after{content:attr(data-subtitle) ' // ' attr(data-phase);display:block;margin-top:6px;font:9px monospace;letter-spacing:.4px;color:#b0c683}
+#bossHud.root-guardian #bossName{color:#dfedbd;font-size:12px;letter-spacing:1px}
+#bossHud.root-guardian #bossBar{background:linear-gradient(90deg,#506e35,#b7df68);transition:width .16s;box-shadow:0 0 8px #98c55d80}
+#bossHud.root-guardian.root-hit{border-color:#efffb3}
+#bossHud.root-guardian.root-phase{animation:root-phase .35s alternate infinite}
+body[data-region="2"] #game{object-fit:contain;background:#091116}
+@keyframes root-phase{to{box-shadow:0 0 26px #b690d44f;border-color:#cbe590}}
+@media(max-width:600px){#bossHud.root-guardian{padding-left:55px;padding-right:7px}#bossHud.root-guardian::before{width:46px;background-size:68px 54px}#bossHud.root-guardian #bossName{font-size:10px;letter-spacing:.3px}#bossHud.root-guardian::after{font-size:8px;letter-spacing:0}}
+@media(prefers-reduced-motion:reduce){#bossHud.root-guardian.root-phase{animation:none}}

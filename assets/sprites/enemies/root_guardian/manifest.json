@@ -1,0 +1,34 @@
+{
+  "name": "GUARDIÃO DAS RAÍZES — O ÚLTIMO ECOSSISTEMA",
+  "region": "FLORESTA EXPERIMENTAL",
+  "reference": "Guardião das Raízes em Pixel Art.png",
+  "frameSize": [192, 192],
+  "origin": [96, 164],
+  "facing": "right",
+  "transparency": "RGBA; estimated local gradient removed with edge-connected segmentation",
+  "cropSource": "tools/build-root-guardian.ps1 — manually inspected nonuniform rectangles, titles excluded",
+  "notes": "Missing intermediate frames are derived from reference poses with breathing, compression and progressive collapse. There is no dedicated tongue sequence in the reference: reused mouth poses combine with an independently authored tongue. FLOAT is a supported resting pose, not physical levitation.",
+  "animations": {
+    "IDLE": {"file": "root_guardian_idle.png", "frames": 8, "sourcePoses": 8},
+    "FLOAT": {"file": "root_guardian_float.png", "frames": 8, "sourcePoses": 8},
+    "MOVE": {"file": "root_guardian_move.png", "frames": 8, "sourcePoses": 9},
+    "JUMP": {"file": "root_guardian_jump.png", "frames": 8, "sourcePoses": 8},
+    "LAND": {"file": "root_guardian_land.png", "frames": 5, "sourcePoses": 3},
+    "TONGUE_ATTACK": {"file": "root_guardian_tongue_attack.png", "frames": 10, "reusedMouthPoses": 7},
+    "SPORE_ATTACK": {"file": "root_guardian_spore_attack.png", "frames": 8, "sourcePoses": 3},
+    "ROOT_ATTACK": {"file": "root_guardian_root_attack.png", "frames": 10, "sourcePoses": 3},
+    "MUSHROOM_SUMMON": {"file": "root_guardian_mushroom_summon.png", "frames": 10, "sourcePoses": 6},
+    "ULTIMATE": {"file": "root_guardian_ultimate.png", "frames": 16, "sourcePoses": 11},
+    "HIT": {"file": "root_guardian_hit.png", "frames": 4, "sourcePoses": 3},
+    "DEATH": {"file": "root_guardian_death.png", "frames": 12, "sourcePoses": 8}
+  },
+  "individualFrames": "<animation>/000.png through <animation>/<count-1>.png",
+  "secondary": {
+    "directory": "assets/sprites/effects/root_guardian/",
+    "frameSize": [128, 128],
+    "contentRects": {"roots": [27, 9, 74, 110], "shockwave": [9, 47, 110, 34]},
+    "framesPerSheet": 8,
+    "files": ["spores.png", "roots.png", "mushrooms.png", "tongue.png", "shockwave.png", "particles.png", "organic_projectiles.png", "eyes.png", "moss.png", "core.png", "vines.png", "minion.png"]
+  },
+  "portrait": "portrait.png"
+}
