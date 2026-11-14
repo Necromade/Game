@@ -1,0 +1,32 @@
+﻿PASS only final generic boss is replaced; every previous boss and final enemies remain
+PASS all 37 sheets load with alpha, correct frame dimensions and progressive poses
+PASS EDEN uses a larger world body and a dedicated arena that fits the viewport
+PASS intro waits for approach enemies, lights core before dialogue, protects boss and ends
+PASS ABSOLUTE warns, deals collision damage, and recovers
+PASS WAVE warns, deals collision damage, and recovers
+PASS BLADES warns, deals collision damage, and recovers
+PASS PREDICTION warns, deals collision damage, and recovers
+PASS RAIN warns, deals collision damage, and recovers
+PASS CORE warns, deals collision damage, and recovers
+PASS CLAW warns, deals collision damage, and recovers
+PASS PULSE warns, deals collision damage, and recovers
+PASS COLLAPSE warns, deals collision damage, and recovers
+PASS ADVANCED warns, deals collision damage, and recovers
+PASS TOTAL warns, deals collision damage, and recovers
+PASS JUDGMENT warns, deals collision damage, and recovers
+PASS SINGULARITY warns, deals collision damage, and recovers
+PASS ANNIHILATION warns, deals collision damage, and recovers
+PASS locked prediction uses velocity once and does not follow subsequent player movement
+PASS shockwaves can be jumped, columns have safe gaps, and rings obey dodge immunity
+PASS singularity attracts without teleporting and expires
+PASS exact thresholds cannot skip forms and transformations cancel hazards
+PASS continuous hits preserve attacks and trigger retaliation in every form
+PASS teleport stays inside arena and grants visible disappearance/recovery
+PASS camera frames the arena, bounds player, and resets outside final room
+PASS every body clip and independent effects advance without render mutating state
+PASS melee and ranged weapons can reach the world hitbox
+PASS death is deferred, cancels attacks, collapses for 4.8s, rewards once and unlocks ending
+PASS complete fight with real rifle fire visits three forms and reaches final terminal
+PASS room transitions discard all EDEN state and owned projectiles
+PASS no JavaScript errors
+RESULT PASS 31 passed, 0 failed

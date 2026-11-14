@@ -1,0 +1,14 @@
+﻿PASS mortis preserves attack data on damage
+PASS mortis releases attacks under continuous hits
+PASS governor preserves attack data on damage
+PASS governor releases attacks under continuous hits
+PASS rootGuardian preserves attack data on damage
+PASS rootGuardian releases attacks under continuous hits
+PASS colossus preserves attack data on damage
+PASS colossus releases attacks under continuous hits
+PASS matrix preserves attack data on damage
+PASS matrix releases attacks under continuous hits
+PASS boss preserves attack data on damage
+PASS boss releases attacks under continuous hits
+PASS ordinary enemies still stagger
+RESULT PASS 13 passed, 0 failed

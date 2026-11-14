@@ -1,0 +1,31 @@
+﻿PASS only industrial boss replaced, all other bosses retained
+PASS all sheets load, have transparent margins and distinct poses
+PASS intro detects locally and prevents early damage and attacks
+PASS phase 1 punch warning, hit and recovery
+PASS phase 1 steam warning, hit and recovery
+PASS phase 1 claw warning, hit and recovery
+PASS phase 1 blast warning, hit and recovery
+PASS phase 1 beam warning, hit and recovery
+PASS phase 1 charge warning, hit and recovery
+PASS phase 1 overload warning, hit and recovery
+PASS phase 2 punch warning, hit and recovery
+PASS phase 2 steam warning, hit and recovery
+PASS phase 2 claw warning, hit and recovery
+PASS phase 2 blast warning, hit and recovery
+PASS phase 2 beam warning, hit and recovery
+PASS phase 2 charge warning, hit and recovery
+PASS phase 2 overload warning, hit and recovery
+PASS exact 50% transition, same sprites, faster moves and combos
+PASS floor shockwaves can be jumped and expire
+PASS core beam locks its warning direction and can be jumped
+PASS solid walls and arena bounds constrain movement
+PASS damage reaction does not interrupt an attack
+PASS death dismantles, cancels hazards and ends
+PASS real ranged combat reaches both phases and clears arena
+PASS room transition discards boss effects
+PASS transition explosion warns, damages nearby once and spares distant player
+PASS charge locks direction, moves, hits once and respects walls
+PASS canvas receives changing body frames throughout movement and every attack
+PASS rendering does not advance or reset the animation playhead
+PASS no runtime errors
+RESULT PASS 30 passed, 0 failed

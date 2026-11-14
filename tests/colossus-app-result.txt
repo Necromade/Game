@@ -1,0 +1,1 @@
+﻿PASS real index.html menu -> Núcleo Industrial checkpoint -> active Colossus, sprite rendering and HUD. Animated body frames: 7. Runtime errors: []

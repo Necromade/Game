@@ -1,0 +1,1 @@
+﻿PASS real menu -> final arena -> intro -> three forms -> cinematic death -> existing ending choices. Distinct sprite frames: 66. Runtime errors: []

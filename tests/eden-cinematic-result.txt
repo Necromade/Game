@@ -1,0 +1,7 @@
+﻿PASS checkpoint entry starts once and locks all gameplay commands
+PASS stages reveal rings before body and use smooth core close-up
+PASS power demonstration is harmless and battle restores camera, HUD and controls
+PASS room exit aborts safely; a fresh entry replays without persistent save lock
+PASS pausing simulation freezes the complete cinematic timeline
+PASS crossing arena threshold during movement still starts the cinematic
+RESULT PASS 6 passed, 0 failed

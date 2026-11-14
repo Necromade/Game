@@ -1,0 +1,16 @@
+(async function(){
+await Promise.all(Object.values(DP.Eden.sheets).map(im=>im.decode()));
+const out=document.querySelector('#results'),lines=[];let failures=0;
+const g=new DP.Game(document.querySelector('canvas'),{room:5,checkpoint:{room:5,x:1510,y:478}}, {hit(){},hurt(){},jump(){},terminal(){}},()=>{});
+function assert(v,msg){if(!v)throw Error(msg);}
+function test(name,f){try{f();lines.push('PASS '+name);}catch(e){failures++;lines.push('FAIL '+name+': '+e.message);}}
+function reset(){g.transitionTo(5,{x:1510,y:478},true);const e=g.room.enemies.find(e=>e.kind==='eden');g.room.enemies=[e];g.room.spawn.remaining=0;g.room.spawn.scheduled=null;g.p.hp=100;g.update(1/60);return e;}
+function advance(time){for(let i=0;i<Math.ceil(time*60);i++)g.update(1/60);}
+test('checkpoint entry starts once and locks all gameplay commands',()=>{const e=reset();assert(g.edenCinema,'no cinema');for(const key of ['startAttack','startDodge','startSkill'])assert(g[key]()===false,key);assert(!g.damagePlayer(50,'eden'),'player damage');assert(!g.damage(e,50),'boss damage');g.setKeys({j:true,d:true});assert(!g.keys.j&&!g.keys.d,'input leaked');const hp=e.hp;advance(4);assert(e.hp===hp&&g.p.hp===100&&!g.projectiles.length,'combat ran');});
+test('stages reveal rings before body and use smooth core close-up',()=>{reset();const states=new Set();let lastZoom=1;for(let i=0;i<49*60;i++){g.update(1/60);const s=g.edenCinema;states.add(s.stage);assert(Math.abs(s.zoom-lastZoom)<.02,'camera jump');lastZoom=s.zoom;if(i%120===0)g.draw();}assert(states.has('SUSPENSE')&&states.has('MANIFESTATION')&&states.has('REVEAL')&&states.has('DIALOGUE'),'missing stage');assert(DP.EdenCinematic.lines.length===8,'missing dialogue');});
+test('power demonstration is harmless and battle restores camera, HUD and controls',()=>{reset();advance(49);const hp=g.p.hp;advance(15);assert(g.p.hp===hp&&!g.projectiles.length,'demo harmed player');assert(g.edenCinema.stage==='TITLE','no title');advance(8.1);assert(!g.edenCinema&&g.camera===1440,'not restored');assert(!document.body.classList.contains('eden-cinema'),'UI hidden');assert(!document.querySelector('#bossHud').classList.contains('eden-intro-hidden'),'boss HUD hidden');assert(g.startDodge(),'controls still locked');advance(.5);assert(!g.edenCinema,'intro repeated');});
+test('room exit aborts safely; a fresh entry replays without persistent save lock',()=>{reset();advance(5);g.transitionTo(2);assert(!g.edenCinema&&!document.body.classList.contains('eden-cinema'),'abort leaked');reset();assert(g.edenCinema.time<.1,'entry did not restart');assert(!('edenIntroPlayed' in g.data),'transient state saved');});
+test('pausing simulation freezes the complete cinematic timeline',()=>{reset();advance(1);g.running=false;const t=g.edenCinema.time;advance(3);g.draw();assert(g.edenCinema.time===t,'desynchronized pause');g.running=true;});
+test('crossing arena threshold during movement still starts the cinematic',()=>{g.transitionTo(5,{x:1449,y:478},true);g.room.enemies=g.room.enemies.filter(e=>e.kind==='eden');g.room.spawn.remaining=0;g.room.spawn.scheduled=null;g.setKeys({d:true});g.update(.033);g.update(.033);assert(g.edenCinema,'crossing skipped cinema');});
+reset();advance(44);g.draw();out.textContent=lines.join('\n')+'\nRESULT '+(failures?'FAIL':'PASS')+' '+(lines.length-failures)+' passed, '+failures+' failed';
+})();

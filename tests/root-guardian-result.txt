@@ -20,7 +20,7 @@ PASS all twelve animations select one main frame without advancing during draw
 PASS eyes, mushrooms, moss, core and vines keep independent animation phases
 PASS spores collide through existing projectile damage and expire
 PASS spores burst at ground contact without changing other projectile types
-BATTLE phases=1,2,3 states=MOVE,LAND,FLOAT,TONGUE_ATTACK,SPORE_ATTACK,HIT,MUSHROOM_SUMMON,ROOT_ATTACK,JUMP,ULTIMATE,DEATH
+BATTLE phases=1,2,3 states=MOVE,LAND,FLOAT,TONGUE_ATTACK,SPORE_ATTACK,MUSHROOM_SUMMON,ROOT_ATTACK,JUMP,ULTIMATE,DEATH
 PASS complete browser battle uses real rifle hits through all phases and skills
 PASS room changes discard guardian, colonies, spores and local effects
 PASS no JavaScript runtime errors

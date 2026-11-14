@@ -9,7 +9,7 @@ PASS supremacy telegraph, safe distance, discharge, damage and cleanup
 PASS 70% and 40% phase thresholds and boss HUD
 PASS all animations select exactly one frame, drawing does not advance time
 PASS projectiles collide and expire, melee respects vertical distance
-BATTLE phases=1,2,3 states=CHASE,IDLE,ATTACK,CANNON,HIT,PATROL,SUMMON,ULTIMATE,SHIELD,ORDER,DEATH
+BATTLE phases=1,2,3 states=CHASE,IDLE,ATTACK,CANNON,SUMMON,SHIELD,ORDER,ULTIMATE,DEATH
 PASS complete battle using real player projectiles through all three phases
 PASS room transition clears boss objects
 PASS no browser runtime errors

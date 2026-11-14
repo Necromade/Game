@@ -16,7 +16,7 @@ PASS absolute fusion opens core, warns, spares safe zone and discharges
 PASS phase thresholds activate integration and expansion with special HUD
 PASS all body clips render one main frame and rendering never advances clocks
 PASS secondary core/cable/plate/eye and tentacle frames continue independently
-BATTLE phases=1,2,3 states=MOVE,FLOAT,TENTACLE,SHOT,HIT,SUMMON,ROOT,ULTIMATE,DEATH
+BATTLE phases=1,2,3 states=MOVE,FLOAT,TENTACLE,SHOT,SUMMON,ROOT,ULTIMATE,DEATH
 PASS full browser battle uses real rifle collision, all phases and all abilities
 PASS room transitions remove Matrix state, shots and summons
 PASS no browser runtime errors

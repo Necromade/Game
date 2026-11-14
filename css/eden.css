@@ -1,0 +1,11 @@
+#bossHud.eden{border-color:#ce3c9e;background:linear-gradient(120deg,#13091deb,#300b29e8);box-shadow:0 0 24px #ed2c8d22;max-width:calc(100% - 32px)}
+#bossHud.eden #bossName{color:#ffe0f3;letter-spacing:2px}
+#bossHud.eden #bossBar{background:linear-gradient(90deg,#7428ae,#ec297a,#ffa9e6)}
+#bossHud.eden::after{content:attr(data-phase);color:#fba8de;letter-spacing:2px;font-size:10px}
+body[data-region="5"] #objective{color:#ef9bd6}
+#bossHud.eden{width:min(660px,78vw);padding:12px 20px;border:1px solid #9f3679;top:112px}
+#bossHud.eden .bar{height:15px}
+#bossHud.eden-intro-hidden{opacity:0!important;visibility:hidden}
+body.eden-cinema #hud,body.eden-cinema #footer,body.eden-cinema #touch,body.eden-cinema #toast{opacity:0;pointer-events:none}
+#hud,#footer,#touch{transition:opacity .8s}
+@media(max-width:700px){#bossHud.eden #bossName{font-size:10px;letter-spacing:1px}#bossHud.eden::after{font-size:8px}}

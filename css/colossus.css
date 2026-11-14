@@ -1,0 +1,3 @@
+#bossHud.colossus{border-color:#a4484f;box-shadow:0 0 20px #d32f4333}
+#bossHud.colossus::after{content:attr(data-phase);display:block;color:#ffc1a3;font:10px monospace;letter-spacing:2px;margin-top:5px}
+#bossHud.colossus #bossBar{background:linear-gradient(90deg,#92283d,#ff7150)}
